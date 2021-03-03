@@ -146,7 +146,7 @@ bigint divide_bigint_onedigit(bigint divd, int div){
     int quo_len;
     int c_first_n = 1;
     for(int i= divd.length -1 ; i>=0; i--){
-        dec = divd.number[i] + rem;
+        dec = divd.number[i] + 10*rem;
         quo = dec / div;
         rem = dec % div;
 
@@ -154,11 +154,11 @@ bigint divide_bigint_onedigit(bigint divd, int div){
 
         //Record the first digint
         if ((quo !=0) & (c_first_n==1)){
-          quo_big.length = i;
+          quo_big.length = i+1;
           c_first_n = 0; //mark first non-zero 
         }
         else if ((c_first_n==1) & (i==0)){
-           quo_big.length = i;
+           quo_big.length = 0;
         }
         
     }
