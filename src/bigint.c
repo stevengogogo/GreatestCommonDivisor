@@ -8,12 +8,19 @@
 bigint init_bigint(int number[], int length)
 {
     bigint p;
+    int len_eff=length; //effective length
+    int first_n = 1;
     memset(p.number, 0, sizeof(p.number)); // Fill zeros
-    for(int i=0; i<length; i++){
+    for(int i=length-1; i>=0; i--){
         p.number[i] = number[i];
+
+        if ((number[i] != 0) & (first_n==1)){
+            len_eff = i + 1; //new length
+            first_n = 0;
+        }
     }
 
-    p.length = length;
+    p.length = len_eff;
     
     return p;
 }
@@ -22,7 +29,6 @@ bigint init_bigint_zero(void){
     int z[] ={0};
     return init_bigint(z, 1);
 }
-
 
 
 //Create new biginteger from string
@@ -75,24 +81,20 @@ bigint newnumint(int int_arr[],int length)
     return num;
 }
 
-/* Return Bigint with effective number. */
-/*
-bigint effective_num(bigint ovnum)
-{
-  int eff_i = ovnum->length;
-  for (int i=ovnum->length-1; i>0; i-- ){
-      if (ovnum->number[i] == 0){
-        eff_i--;
-      }
-      else{
-        break;
-      }
-  }
 
-  ovnum->length = eff_i + 1;
-  
+int compare_bigint(bigint a, bigint b){
+    if (a.length != b.length){
+        return 0;
+    }
+    else{
+        for(int i=0;i<a.length;i++){
+            if (a.number[i] != b.number[i]){
+                return 0;
+            }
+        }
+        return 1;
+    }
 }
-*/
 
 bigint add(bigint a, bigint b)
 {
@@ -130,7 +132,31 @@ bigint add(bigint a, bigint b)
 
 }
 
+bigint divide_bigint_onedigit(bigint divd, int div){
+    bigint quo_big = init_bigint_zero();
+    int dec; //Decimal number
+    int quo; //Quotient
+    int rem=0; //remainder
+    int quo_len;
+    int c_first_n = 1;
+    for(int i= divd.length -1 ; i>=0; i--){
+        dec = divd.number[i] + rem;
+        quo = dec / div;
+        rem = dec % div;
 
+        quo_big.number[i] = dec;
+
+        //Record the first digint
+        if ((dec !=0) & (c_first_n==1)){
+          quo_big.length = i;
+          c_first_n = 0; //mark first non-zero 
+        }
+        
+    }
+
+
+    return quo_big;
+}
 
 
 

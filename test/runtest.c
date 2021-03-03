@@ -11,6 +11,8 @@ TEST_LIST = {
     {"Initiation of Bigint", test_init_bigint},
     {"Generate Integers to Bigint",test_create_bigint_from_ints},
     { "Element of BigInt", test_BigInt_element },
+    {"Comparison", test_compare},
+    {"Division", test_division},
     {"Display", test_display},
     {"Utility", test_utils},
     {"Utility: string comparison",test_str_identical},

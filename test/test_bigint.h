@@ -88,5 +88,25 @@ void test_init_bigint(void){
     TEST_CHECK(p.length == 4);
 }
 
+void test_compare(void){
+    bigint a = newnumc("0000000003434341341412234234");
+    bigint b = newnumc("3434341341412234234");
+    bigint c = newnumc("3434341341412234234000000000");
+
+    TEST_CHECK(compare_bigint(a,b)==1);
+    TEST_CHECK(compare_bigint(b,c)==0);
+    TEST_CHECK(compare_bigint(a,c)==0);
+}
+void test_division(void){
+
+    bigint divident = newnumc("3434341341412234234");
+    int divisor=2;
+    bigint quotient;
+    bigint quo_real = newnumc("1717170670706117117");
+
+    quotient = divide_bigint_onedigit(divident, divisor);
+
+}
+
 
 #endif
