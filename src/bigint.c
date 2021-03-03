@@ -18,6 +18,11 @@ bigint init_bigint(int number[], int length)
             len_eff = i + 1; //new length
             first_n = 0;
         }
+        else if ((i==0) & (first_n==1))
+        {
+           len_eff = 0;
+        }
+        
     }
 
     p.length = len_eff;

@@ -84,7 +84,7 @@ void test_init_bigint(void){
     bigint p = init_bigint(a,4);
     bigint z = init_bigint_zero();
 
-    TEST_CHECK(z.length == 1);
+    TEST_CHECK(z.length == 0);
     TEST_CHECK(p.length == 4);
 }
 
@@ -92,8 +92,13 @@ void test_compare(void){
     bigint a = newnumc("0000000003434341341412234234");
     bigint b = newnumc("3434341341412234234");
     bigint c = newnumc("3434341341412234234000000000");
+    bigint d1 = newnumc("0");
+    bigint d2 = newnumc("000000000000");
+    
 
     TEST_CHECK(compare_bigint(a,b)==1);
+    TEST_CHECK(compare_bigint(d1,d1)==1);
+    TEST_CHECK(compare_bigint(d1,d2)==1);
     TEST_CHECK(compare_bigint(b,c)==0);
     TEST_CHECK(compare_bigint(a,c)==0);
 }
