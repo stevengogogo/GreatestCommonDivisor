@@ -7,11 +7,12 @@
 
 int main()
 {
-    char n[]="34343";
-    bigint a = newnumc(n);
-    
-    char* i = create_string(a);
-    printf("%d", strcmp(i, n));
+    bigint divident1 = newnumc("3434341341412234234");
+    int divisor=2;
+    bigint quotient1;
+
+    quotient1 = divide_bigint_onedigit(divident1, divisor);
+
 
     return 0;
 }
