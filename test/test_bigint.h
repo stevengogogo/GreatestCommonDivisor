@@ -107,17 +107,41 @@ void test_division(void){
     //Define problem
     bigint divident1 = newnumc("3434341341412234234");
     bigint divident2 = newnumc("1");
+    bigint divident3 = newnumc("0");
     int divisor=2;
-    bigint quotient1, quotient2;
+    bigint quotient1, quotient2, quotient3;
     bigint quo_real1 = newnumc("1717170670706117117");
     bigint quo_real2 = newnumc("0");
+    bigint quo_real3 = newnumc("0");
     //Calculation
     quotient1 = divide_bigint_onedigit(divident1, divisor);
     quotient2 = divide_bigint_onedigit(divident2, divisor);
+    quotient3 = divide_bigint_onedigit(divident3, divisor);
     //Test
     TEST_CHECK(compare_bigint(quotient1, quo_real1)==1);
     TEST_MSG("%s / %d = %s . but got %s", create_string(divident1), divisor, create_string(quo_real1), create_string(quotient1));
     TEST_CHECK(compare_bigint(quotient2, quo_real2)==1);
+    TEST_CHECK(compare_bigint(quotient3, quo_real3)==1);
+}
+
+void test_swap(void){
+    bigint a = newnumc("3434341341412234234");
+    bigint b = newnumc("0");
+    bigint a2 = newnumc("0");
+    bigint b2 = newnumc("3434341341412234234");
+
+    swap_bigint(&a, &b);
+    TEST_CHECK(compare_bigint(a,a2)==1);
+    TEST_CHECK(compare_bigint(b,b2)==1);
+}
+
+void test_minmax(void){
+    bigint a2 = newnumc("001212132313");
+    bigint b2 = newnumc("00000003434341341");
+
+    TEST_CHECK(argmax_bigint(a2,b2) == 1);
+    TEST_CHECK( compare_bigint(max_bigint(a2,b2), b2) == 1);
+    TEST_CHECK( compare_bigint(min_bigint(a2,b2), a2) == 1);
 }
 
 

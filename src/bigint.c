@@ -35,6 +35,12 @@ bigint init_bigint_zero(void){
     return init_bigint(z, 1);
 }
 
+void copy_bigint(bigint* dest, bigint* src){
+    dest->length = src->length;
+    for(int i=0;i<src->length;i++){
+        dest->number[i] = src->number[i];
+    }
+}
 
 //Create new biginteger from string
 bigint newnumc(char* numb)
@@ -167,7 +173,61 @@ bigint divide_bigint_onedigit(bigint divd, int div){
     return quo_big;
 }
 
+void swap_bigint(bigint* a, bigint* b){
+    bigint* temp = a;
+    
+    a->length = b->length;
+    b->length = b->length;
 
+    for(int i=0;i<b->length;i++){
+        a->number[i] = b->number[i];
+    }
+
+    for(int i=0;i<temp->length;i++){
+        b->number[i] = temp->number[i];
+    }
+ 
+}
+
+int argmax_bigint(bigint a, bigint b){
+    if (a.length > b.length){
+        return 0;
+    }
+    else if (a.length < b.length){
+        return 1;
+    }
+
+    for(int i=a.length-1;i>=0;i--){
+        if (a.number[i] > b.number[i]){
+            return 0;
+        }
+        else if (a.number[i] < b.number[i]){
+            return 1;
+        }
+    }
+
+    return 1;
+}
+
+bigint max_bigint(bigint a, bigint b){
+    int argmax = argmax_bigint(a,b);
+    if (argmax==0){
+        return a;
+    }
+    else{
+        return b;
+    }
+}
+
+bigint min_bigint(bigint a, bigint b){
+       int argmax = argmax_bigint(a,b);
+    if (argmax==0){
+        return b;
+    }
+    else{
+        return a;
+    }
+}
 
 void print(bigint num)
 {

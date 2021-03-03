@@ -11,7 +11,8 @@ typedef struct
 
 bigint init_bigint(int number[], int length);
 bigint init_bigint_zero(void);
-
+/*Copy an bigint [2] to destination [1].*/
+void copy_bigint(bigint*, bigint*);
 bigint newnumc(char*);
 
 bigint newnumint(int*, int );
@@ -24,7 +25,10 @@ int compare_bigint(bigint, bigint);
 bigint add(bigint, bigint);
 /*Divide bigint with a positive one-digit integer [1,9] */
 bigint divide_bigint_onedigit(bigint, int);
-bigint swap_bigint(bigint);
+/*Change first and last variable*/
+void swap_bigint(bigint*, bigint*);
+/*If [1] is bigger or same return 0; otherwise, 1 */
+int argmax_bigint(bigint, bigint);
 bigint max_bigint(bigint, bigint);
 bigint min_bigint(bigint, bigint);
 

@@ -13,6 +13,7 @@ TEST_LIST = {
     { "Element of BigInt", test_BigInt_element },
     {"Comparison", test_compare},
     {"Division", test_division},
+    {"MinMax", test_minmax},
     {"Display", test_display},
     {"Utility", test_utils},
     {"Utility: string comparison",test_str_identical},
