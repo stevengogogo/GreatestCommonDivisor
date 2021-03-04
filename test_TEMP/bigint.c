@@ -131,32 +131,50 @@ bigint add(bigint a, bigint b)
         s = a.number[i] + b.number[i] + carrier;
         if (s < 10){
             SUM.number[i] = s;
+            SUM.length += 1;
             carrier = 0;
         }
         else {
             SUM.number[i] = s % 10;
+            SUM.length += 1;
             carrier = 1;
         }
     }
+
+    if (carrier == 1){
+        SUM.number[len_max.extreme] = 1;
+        SUM.length +=1;
+    }
+
 
     return SUM;
 
 }
 
 bigint multply_10(bigint a){
-    assert(a.length<MAX_DEC);
-    bigint mul = init_bigint_zero();
+    
+    return power10_bigint(a, 1);
+}
 
-    for(int i=a.length;i>0;i--){
-        mul.number[i] = a.number[i-1];
+bigint power10_bigint(bigint a, int power){
+    int eff_digit = a.length + power;
+    assert(eff_digit<=MAX_DEC);
+    assert(power >= 0);
+    if (power==0){
+        return a;
     }
-    mul.number[0] = 0;
-    mul.length = a.length + 1;
+    bigint mul = init_bigint_zero();
+    mul.length = eff_digit;
+
+    for(int i=0;i<a.length;i++){
+        mul.number[i+power] = a.number[i];
+    }
     return mul;
 }
 
 bigint multiplication_bigint(bigint a, bigint b){
     bigint mul_bigint = newnumc("0");
+    bigint sum = newnumc("0");
     if (argmax_bigint(a,b)==1){
         swap_bigint(&a, &b);
     }
@@ -165,16 +183,21 @@ bigint multiplication_bigint(bigint a, bigint b){
 
     for(int j=0;j<b.length;j++){
         carry = 0;
+        mul_bigint.length = a.length;
         for(int i=0;i<a.length;i++){
             mul_e = a.number[i] * b.number[j] + carry;
             carry = mul_e / 10;   
             mul_bigint.number[i] = mul_e % 10;
         }
         mul_bigint.number[a.length] = carry /10;
+        if (carry>9){
+            mul_bigint.length += 1;
+        }
+        sum = add(sum , power10_bigint(mul_bigint, j) );
     }
 
 
-    return mul_bigint;
+    return sum;
 }
 
 bigint substraction_bigint(bigint minu, bigint subtra){

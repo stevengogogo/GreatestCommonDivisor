@@ -172,8 +172,8 @@ void test_multiplication(void){
 
     //Multiply with 10;
     bigint a1 = newnumc("2343242423423424");
-    bigint b1 = newnumc("23432424234234240");
-    bigint c1 = multply_10(a1);
+    bigint b1 = newnumc("234324242342342400");
+    bigint c1 = power10_bigint(a1,2);
     TEST_CHECK(compare_bigint(c1, b1) == 1 );
     TEST_MSG("%s * 10 = %s . but got %s", create_string(a1), create_string(b1), create_string(c1));
 }

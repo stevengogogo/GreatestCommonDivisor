@@ -12,6 +12,7 @@ typedef struct
 bigint init_bigint(int number[], int length);
 bigint init_bigint_zero(void);
 bigint multply_10(bigint);
+bigint power10_bigint(bigint, int);
 /*Copy an bigint [2] to destination [1].*/
 void copy_bigint(bigint*, bigint*);
 bigint newnumc(char*);
