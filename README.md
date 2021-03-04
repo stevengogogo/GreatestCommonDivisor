@@ -1,5 +1,9 @@
 # Problem 1: Greatest Common Divisor of Big Integers (Programming)
 
+## Binary Algorithm
+
+<img width="1343" alt="Screen Shot 2021-03-04 at 7 33 08 PM" src="https://user-images.githubusercontent.com/29009898/109957840-7462f580-7d20-11eb-9d7e-22b054703eb7.png">
+
 
 ## 字元輸入 `scanf` 
 
@@ -70,6 +74,7 @@ memset(number, 0, sizeof(number)); //zero array
 ## Division in English
 
 https://www.learnalberta.ca/content/memg/videos/Divisor02/Divisor02-poster.jpg
+
 
 
 ---

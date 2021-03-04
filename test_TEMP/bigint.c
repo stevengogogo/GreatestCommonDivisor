@@ -155,22 +155,6 @@ bigint multply_10(bigint a){
     return mul;
 }
 
-bigint power_bigint(bigint a, int power){
-    int eff_digit = a.length + power;
-    assert(eff_digit<=MAX_DEC);
-    assert(power >= 0);
-    if (power==0){
-        return a;
-    }
-    bigint mul = init_bigint_zero();
-    mul.length = eff_digit;
-
-    for(int i=0;i<a.length;i++){
-        mul.number[i+power] = a.number[i];
-    }
-    return mul;
-}
-
 bigint multiplication_bigint(bigint a, bigint b){
     bigint mul_bigint = newnumc("0");
     if (argmax_bigint(a,b)==1){
@@ -187,7 +171,6 @@ bigint multiplication_bigint(bigint a, bigint b){
             mul_bigint.number[i] = mul_e % 10;
         }
         mul_bigint.number[a.length] = carry /10;
-        
     }
 
 
