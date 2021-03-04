@@ -23,7 +23,9 @@ bigint newnumint_eff(int,int);
 int compare_bigint(bigint, bigint);
 
 bigint add(bigint, bigint);
-/*Divide bigint with a positive one-digit integer [1,9] */
+/*Substraction [1] - [2]. Assume minu > subtra*/
+bigint substraction_bigint(bigint minu, bigint subtra);
+/*Divide bigint with a positive one-digit integer [1,9].*/
 bigint divide_bigint_onedigit(bigint, int);
 /*Change first and last variable*/
 void swap_bigint(bigint*, bigint*);

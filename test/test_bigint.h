@@ -78,6 +78,16 @@ void test_ADD(void)
     TEST_CHECK(striden(create_string(c), create_string(ans)));
 }
 
+void test_substraction(void){
+    bigint a = newnumc("00000232343342342");
+    bigint b = newnumc("9999999");
+    bigint ans = newnumc("232333342343");
+    bigint ans_p;
+
+    ans_p = substraction_bigint(a,b);
+    TEST_CHECK(compare_bigint(ans_p, ans));
+}
+
 void test_init_bigint(void){
     int a[] = {1,2,3,4};
 

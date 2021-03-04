@@ -14,6 +14,7 @@ TEST_LIST = {
     {"Comparison", test_compare},
     {"Division", test_division},
     {"MinMax", test_minmax},
+    {"substraction", test_substraction},
     {"Display", test_display},
     {"Utility", test_utils},
     {"Utility: string comparison",test_str_identical},

@@ -143,6 +143,38 @@ bigint add(bigint a, bigint b)
 
 }
 
+bigint substraction_bigint(bigint minu, bigint subtra){
+    assert(argmax_bigint(minu, subtra) == 0 );
+    bigint diff;
+    int carry=0;
+    int minus_total;
+    int eff_len = minu.length;
+   
+    for(int i=0; i<(minu.length);i++){
+        minus_total = subtra.number[i] + carry;
+        if (minu.number[i]>=minus_total){
+            diff.number[i] = minu.number[i] - minus_total;
+        } 
+        else{
+            //Borrow 10 
+            minu.number[i+1] -=1;
+            diff.number[i] = 10 + minu.number[i] - minus_total; 
+        }
+    }
+
+    // Get effective digits
+    for(int i=minu.length-1;i>=0; i--){
+        if (diff.number[i]==0){
+            eff_len -= 1;
+        }
+        else{
+            break;
+        }
+    }
+    diff.length = eff_len;
+    return diff;
+}
+
 bigint divide_bigint_onedigit(bigint divd, int div){
     assert(div>=0);
     bigint quo_big = init_bigint_zero();
