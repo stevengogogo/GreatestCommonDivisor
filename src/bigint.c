@@ -109,6 +109,13 @@ int compare_bigint(bigint a, bigint b){
 
 bigint add(bigint a, bigint b)
 {
+    if (compare_bigint(b, init_bigint_zero())==1){
+        return a;
+    }
+    else if (compare_bigint(a, init_bigint_zero())==1){
+        return b;
+    }
+
     swap_minmax_bigint(&a, &b);
 
     bigint SUM = b;
@@ -129,7 +136,7 @@ bigint add(bigint a, bigint b)
         carrier = s/10;
 
         if (carrier !=0 & i==(b.length-1)){
-            SUM.number[b.length] = carrier / 10;
+            SUM.number[b.length] = carrier ;
             SUM.length += 1;
         }
         if (carrier == 0 & i>=a.length){
@@ -155,6 +162,9 @@ bigint power10_bigint(bigint a, int power){
     assert(eff_digit<=MAX_DEC);
     assert(power >= 0);
     if (power==0){
+        return a;
+    }
+    if (compare_bigint(a, init_bigint_zero())== 1){
         return a;
     }
     bigint mul = init_bigint_zero();

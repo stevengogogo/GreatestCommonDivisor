@@ -73,9 +73,11 @@ void test_ADD(void)
 {
     bigint a = newnumc("123");
     bigint b = newnumc("2");
+    bigint z = init_bigint_zero();
     bigint c = add(a,b);
     bigint ans = newnumc("125");
 
+    TEST_CHECK(compare_bigint(a, add(a,b)) == 1);
     TEST_CHECK(striden(create_string(c), create_string(ans)));
 }
 
@@ -163,11 +165,21 @@ void test_even(void){
 }
 
 void test_multiplication(void){
+
+
     bigint a = newnumc("2343242423423424");
-    bigint b = newnumc("9990");
-    bigint ans = newnumc("2340899181000000576");
-    //bigint b = newnumc("234324244");
-    //bigint ans = newnumc("549078509377421720691456");
+    //bigint b = newnumc("9990");
+    //bigint ans = newnumc("23408991810000005760");
+    bigint b = newnumc("234324244");
+    bigint ans = newnumc("549078509377421720691456");
+
+    /*
+            2343242423423424
+                   234324244
+    549078509377421720691456
+    539078409377421720691456
+    */
+
     bigint ans_p = multiplication_bigint(a,b);
     TEST_CHECK(compare_bigint(ans,ans_p)==1);
     TEST_MSG("%s * %s = %s . but got %s", create_string(a), create_string(b), create_string(ans), create_string(ans_p));
