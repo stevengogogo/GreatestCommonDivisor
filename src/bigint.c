@@ -287,27 +287,9 @@ bigint divide_bigint_onedigit(bigint divd, int div){
 }
 
 void swap_bigint(bigint* a, bigint* b){
-    bigint tempa = *a;
-    bigint tempb = *b;
-    
-    a->length = tempb.length;
-    b->length = tempa.length;
-
-
-    for(int i=0;i<MAX_DEC;i++){
-        if (i < tempb.length){
-            a->number[i] = tempb.number[i];
-        }
-        a->number[i] =0 ;
-    }
-
-    for(int i=0;i<MAX_DEC;i++){
-        if (i < tempa.length){
-            b->number[i] = tempa.number[i];
-        }
-        b->number[i] =0 ;
-    }
- 
+    bigint temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 void swap_minmax_bigint(bigint* a,bigint* b){

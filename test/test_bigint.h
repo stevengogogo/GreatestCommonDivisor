@@ -225,16 +225,18 @@ void test_multiply_onedecimal(void){
 void test_gcd(void){
     bigint a = newnumc("23532");
     bigint b = newnumc("23332");
-    bigint gcd_real = newnumc("8");
+    bigint gcd_real = newnumc("4");
     bigint gcd = gcd_bigint(a,b);
 
     TEST_CHECK(compare_bigint(gcd,gcd_real) == 1);
+    TEST_MSG("GCD(%s,%s) = %s . but got %s", create_string(a), create_string(b), create_string(gcd_real), create_string(gcd));
     TEST_CHECK(compare_bigint(gcd_bigint(a,b), gcd_bigint(multiply_onedecimal_bingint(a,2), b)) == 1);
-    
     TEST_CHECK(compare_bigint(gcd_bigint(a,b), gcd_bigint(substraction_bigint(a,b), b)) == 1);
 
-    TEST_MSG("GCD(%s,%s) = %s . but got %s", create_string(a), create_string(b), create_string(gcd_real), create_string(gcd));
+}
 
+void test_gcd_data(void){
+    
 }
 
 

@@ -6,12 +6,15 @@
 #define MAX_DEC 256
 
 int main()
-{
-   bigint a = newnumc("23532");
-    bigint b = newnumc("23332");
-    bigint gcd_real = newnumc("8");
-    bigint gcd = gcd_bigint(a,b);
-
+{   
+    char a, b;
+    bigint gcd;
+    bigint aB, bB;
+    scanf("%s %s", &a, &b);
+    aB = newnumc(&a);
+    bB = newnumc(&b); 
+    gcd = gcd_bigint(aB, bB);
+    printf("%s\n", create_string(gcd));
 
     return 0;
 }
