@@ -32,7 +32,7 @@ bigint init_bigint(int number[], int length)
 
 bigint init_bigint_zero(void){
     int z[] ={0};
-    return init_bigint(z, 1);
+    return init_bigint(z, 0);
 }
 
 void copy_bigint(bigint* dest, bigint* src){
@@ -109,42 +109,39 @@ int compare_bigint(bigint a, bigint b){
 
 bigint add(bigint a, bigint b)
 {
-    extm len_max;
-    len_max = max(&(a.length), &(b.length));
+    swap_minmax_bigint(&a, &b);
 
-    int shorter_len;
-    bigint SUM = init_bigint_zero();
+    bigint SUM = b;
+    assert(SUM.length >= a.length);
     int length; 
     int carrier, s;
 
-    // Get shorter length
-    if (len_max.arg == 0) { // a is bigger
-        shorter_len = b.length;
-    }
-    else {
-        shorter_len = a.length;
-    }
-    
     //Add
     carrier = 0; 
-    for (int i=0;i<shorter_len;i++){
+    for (int i=0;i<a.length;i++){
         s = a.number[i] + b.number[i] + carrier;
-        if (s < 10){
-            SUM.number[i] = s;
-            SUM.length += 1;
-            carrier = 0;
-        }
-        else {
-            SUM.number[i] = s % 10;
-            SUM.length += 1;
-            carrier = 1;
-        }
+        SUM.number[i] = s%10;
+        carrier = s/10;
     }
 
-    if (carrier == 1){
-        SUM.number[len_max.extreme] = 1;
-        SUM.length +=1;
+
+    if (SUM.length == a.length){
+        s =  carrier;
+        if (s!=0){
+            SUM.number[a.length] = s;
+            SUM.length += 1;
+        }
     }
+    else{ //SUM.length > a.length
+        s = SUM.number[a.length] + carrier;
+        SUM.number[a.length] = s%10;
+        if (s>10){
+
+        }
+ 
+    }
+
+    assert(SUM.length<=MAX_DEC);
 
 
     return SUM;
@@ -276,6 +273,13 @@ void swap_bigint(bigint* a, bigint* b){
         b->number[i] = temp->number[i];
     }
  
+}
+
+void swap_minmax_bigint(bigint* a,bigint* b){
+    if (argmax_bigint(*a,*b) == 0){
+        swap_bigint(a, b);
+    }
+
 }
 
 int argmax_bigint(bigint a, bigint b){

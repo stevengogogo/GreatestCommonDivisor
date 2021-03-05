@@ -32,6 +32,7 @@ bigint multiplication_bigint(bigint, bigint);
 bigint divide_bigint_onedigit(bigint, int);
 /*Change first and last variable*/
 void swap_bigint(bigint*, bigint*);
+void swap_minmax_bigint(bigint*,bigint*);
 /*If [1] is bigger or same return 0; otherwise, 1 */
 int argmax_bigint(bigint, bigint);
 bigint max_bigint(bigint, bigint);
