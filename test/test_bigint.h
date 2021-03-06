@@ -1,8 +1,9 @@
 #ifndef TEST_BIGINT_H
 #define TEST_BIGINT_H
 
-
+#include <string.h>
 #include "acutest.h"
+#include "assert.h"
 #include "include/bigint.h"
 #include "include/utils.h"
 
@@ -238,7 +239,9 @@ void test_gcd(void){
 void test_gcd_data(void){
     char *a, *b, *ans;
     FILE *fptr; 
-    
+
+    fptr = openreadfile("test/data/gcd.txt");
+    closereadfile(fptr);
 }
 
 

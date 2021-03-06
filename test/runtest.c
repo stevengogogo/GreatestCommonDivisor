@@ -21,8 +21,10 @@ TEST_LIST = {
     {"Multipication",test_multiplication},
     {"Multiplication one decimal", test_multiply_onedecimal},
     {"GCD", test_gcd},
+    {"GCD with generated data", test_gcd_data},
     {"Display", test_display},
     {"Utility", test_utils},
     {"Utility: string comparison",test_str_identical},
+    {"Utility: cwd", test_cwd},
     {NULL, NULL} // Terminate the test
 };

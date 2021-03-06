@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include "include/utils.h"
 
 //Choose the bigger one
@@ -61,4 +59,37 @@ int striden(char* a, char* b){
     else{
         return len_sh;
     }
+}
+
+//File IO
+char* init_cwd(void){
+    int cwd_len = 1000 + 1;
+    char *cwd = (char*)malloc( (cwd_len) * sizeof(char) );
+    if (getcwd(cwd, sizeof(cwd)) != NULL){
+        printf("%s\n", cwd);
+    }
+    else{
+        perror("Error: ");
+    }
+    return cwd;
+}
+
+void close_cwd(char* cwd){
+    free(cwd);
+    cwd = NULL;
+}
+
+FILE* openreadfile(char filename[]){
+    FILE *fptr;
+    fptr = fopen(filename, "r");
+    if (fptr == NULL){
+        printf("Error: Filename %s doesn't exist\n", filename); 
+        assert(fptr!=NULL);
+    }
+    return fptr;
+}
+
+void closereadfile(FILE* fptr){
+    fclose(fptr);
+    fptr = NULL;
 }
