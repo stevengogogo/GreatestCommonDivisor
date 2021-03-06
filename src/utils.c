@@ -66,12 +66,12 @@ char* init_cwd(void){
     size_t str_size = sizeof(char) * 1024;
     char *cwd = (char*)malloc(str_size);
     if (getcwd(cwd,str_size) != NULL){
-        printf("%s\n", cwd);
+        return cwd;
     }
     else{
         perror("Error: ");
+        return NULL;
     }
-    return cwd;
 }
 
 void close_cwd(char* cwd){

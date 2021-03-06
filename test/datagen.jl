@@ -12,7 +12,7 @@ end
 
 
 function gcd_data()
-    for i in 1:100
+    for i in 1:10000
         a = rand(1:1000000000)
         b = rand(1:1000000000)
         GCD = gcd(a,b)

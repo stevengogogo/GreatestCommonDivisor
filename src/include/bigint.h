@@ -46,7 +46,7 @@ int is_even_bigint(bigint);
 void print(bigint);
 
 char* create_string(bigint);
-
+void close_string(char*);
 int str2int(char);
 
 

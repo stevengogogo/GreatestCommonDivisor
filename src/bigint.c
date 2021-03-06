@@ -409,6 +409,11 @@ char* create_string(bigint num)
     return STR;
 }
 
+void close_string(char* big_str){
+    free(big_str);
+    big_str = NULL;
+}
+
 
 //Convert 1 char to int.
 int str2int(char numstr)

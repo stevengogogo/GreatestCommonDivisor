@@ -199,6 +199,44 @@ int main()
 }
 ```
 
+## 如何安全清除記憶體
+
+> 當 heap 在釋放之前配置的記憶體時，並不一定會把這些釋放的記憶體直接還給系統，它通常會把這些釋放的記憶體先保留下來，等到程式接下來又需要配置動態記憶體時，再拿出來繼續使用。
+
+### 記憶體重複釋放(Double Free)
+
+```c
+char *name = (char*) malloc(...);
+// ...
+free(name);     // First free
+// ...
+free(name);     // Double free
+```
+
+當遇到別名的 pointer 時更難檢查. 
+
+- Double free 的解決方法
+
+```c
+char *name = (char*) malloc(...);
+// ...
+free(name);
+name = NULL;
+```
+
+- 避免資料外洩
+
+```c
+char *name = (char*)malloc(...);
+// ...
+memset(name,0,sizeof(name));
+free(name);
+```
+
+但會對效能造成負擔
+
+
+
 
 ---
 
@@ -223,4 +261,6 @@ int main()
 13. Pass an array to function. [[issue](https://github.com/stevengogogo/DataStructureAlgorithm/issues/3)]
 )]
 14. Flexible array in struct. [[greekforgeek](https://www.geeksforgeeks.org/variable-length-arrays-in-c-and-c/)]
-15. Read text file. [[Pragramiz](https://www.programiz.com/c-programming/c-file-input-output)]
+15. Read text file. [[Pragramiz](https://www.programiz.com/c-programming/c-file-input-output), [GreekforGeek](https://www.geeksforgeeks.org/basics-file-handling-c/)]
+16. 如何安全清除記憶體 `free`. [[Blog](https://blog.gtwang.org/programming/memory-deallocation-issues-in-c/)]
+17. C language doesn't suuport nested function. [[GreekforGeek](https://www.geeksforgeeks.org/nested-functions-c/)]

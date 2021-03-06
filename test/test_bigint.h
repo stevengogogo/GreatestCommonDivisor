@@ -236,11 +236,43 @@ void test_gcd(void){
 
 }
 
+
+void print_error(bigint a, bigint b, bigint an, bigint anp){
+        char *arg[4];
+        bigint ARG[4] = {a,b,an,anp} ;
+        for(int i=0;i<4;i++){
+            arg[i] = create_string(ARG[i]);
+        }
+        //Print error message
+        TEST_MSG("gcd(%s,%s)=%s. But got %s\n", arg[0], arg[1], arg[2], arg[3]);
+
+        for (int i=0;i<4;i++){
+            close_string(arg[i]);
+        }
+    }
 void test_gcd_data(void){
-    char *a, *b, *ans;
+    char a[256], b[256], ans[256];
+    bigint A,B,ANS, ANS_p;
+    char line[300];
     FILE *fptr; 
 
     fptr = openreadfile("test/data/gcd.txt");
+
+    while (fgets(line, sizeof(line), fptr) != NULL){
+        sscanf(line,"%s%s%s",a,b,ans);
+        //Create Bigint from string
+    A = newnumc(a);
+        B = newnumc(b);
+        ANS = newnumc(ans);
+        ANS_p = gcd_bigint(A,B);
+
+        TEST_CHECK(compare_bigint(ANS, ANS_p) == 1);
+        if (compare_bigint(ANS, ANS_p) != 1){
+            print_error(A,B,ANS,ANS_p);
+        }
+    }
+
+
     closereadfile(fptr);
 }
 
