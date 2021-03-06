@@ -14,6 +14,11 @@ make RUN
 3
 ```
 
+## Prerequisite 
+
+See [manual](https://github.com/stevengogogo/CProjectTemplate).
+
+
 ## 字元輸入 `scanf` 
 
 
