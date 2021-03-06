@@ -236,6 +236,8 @@ void test_gcd(void){
 }
 
 void test_gcd_data(void){
+    char *a, *b, *ans;
+    FILE *fptr; 
     
 }
 

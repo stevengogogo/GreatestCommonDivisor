@@ -7,12 +7,12 @@
 
 int main()
 {   
-    char a, b;
+    char a[256], b[256];
     bigint gcd;
     bigint aB, bB;
-    scanf("%s %s", &a, &b);
-    aB = newnumc(&a);
-    bB = newnumc(&b); 
+    scanf("%s %s", a, b);
+    aB = newnumc(a);
+    bB = newnumc(b); 
     gcd = gcd_bigint(aB, bB);
     printf("%s\n", create_string(gcd));
 

@@ -11,5 +11,6 @@ extm min(int*,int*);
 
 int striden(char*,char*);
 
+FILE* readfile(char filename[]);
 
 #endif
