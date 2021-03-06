@@ -29,7 +29,7 @@ void test_str_identical(void){
 void test_cwd(void){
     char *cd;
     cd = init_cwd();
-    printf("%s", cd);
+    TEST_CHECK(cd != NULL);
     close_cwd(cd);
 }
 

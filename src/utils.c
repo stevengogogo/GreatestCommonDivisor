@@ -63,9 +63,9 @@ int striden(char* a, char* b){
 
 //File IO
 char* init_cwd(void){
-    int cwd_len = 1000 + 1;
-    char *cwd = (char*)malloc( (cwd_len) * sizeof(char) );
-    if (getcwd(cwd, sizeof(cwd)) != NULL){
+    size_t str_size = sizeof(char) * 1024;
+    char *cwd = (char*)malloc(str_size);
+    if (getcwd(cwd,str_size) != NULL){
         printf("%s\n", cwd);
     }
     else{
