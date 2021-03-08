@@ -5,6 +5,20 @@
 <img width="1343" alt="Screen Shot 2021-03-04 at 7 33 08 PM" src="https://user-images.githubusercontent.com/29009898/109957840-7462f580-7d20-11eb-9d7e-22b054703eb7.png">
 
 
+## Usage
+
+Use keyboard to set up two numbers for GCD calculation (<= 256 digits for each)
+```bash
+make RUN
+12 3
+3
+```
+
+## Prerequisite 
+
+See [manual](https://github.com/stevengogogo/CProjectTemplate).
+
+
 ## 字元輸入 `scanf` 
 
 
