@@ -70,6 +70,14 @@ $(function() {
 Binary Algorithm</h1>
 <p><img src="https://user-images.githubusercontent.com/29009898/109957840-7462f580-7d20-11eb-9d7e-22b054703eb7.png" alt="Screen Shot 2021-03-04 at 7 33 08 PM" width="1343" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md2"></a>
+Usage</h1>
+<p>Use keyboard to set up two numbers for GCD calculation (&lt;= 256 digits for each) </p><div class="fragment"><div class="line">make RUN</div>
+<div class="line">12 3</div>
+<div class="line">3</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Prerequisite</h1>
+<p>See <a href="https://github.com/stevengogogo/CProjectTemplate">manual</a>.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
 字元輸入 &lt;tt&gt;scanf&lt;/tt&gt;</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"> </div>
@@ -87,7 +95,7 @@ Binary Algorithm</h1>
 <li>告知程式儲存資料的變數位址，為此，必須使用 <code>&amp;</code> 取址運算子</li>
 <li>**字元陣列名稱**本身就有**位址資訊**，故不用 <code>&amp;</code> 來取址</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Memory Management</h1>
 <p><code>malloc</code>, <code>free</code>, <code>calloc</code> 和 <code>realloc</code> 是 C 語言配置記憶體空間的方法.</p>
 <ul>
@@ -101,7 +109,7 @@ Memory Management</h1>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 範例</h2>
 <ul>
 <li><code>malloc</code>: 配置空間但不回傳值<ul>
@@ -111,16 +119,16 @@ Memory Management</h1>
 </li>
 <li><code>calloc</code>: 配置空間與初始值 ```c int *p = calloc(1, sizeof(int)); ``<code> -</code>free<code>: 釋放記憶體 </code>``c int *p = malloc(100); free(p); ```</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Fill the array: &lt;a href="https://www.geeksforgeeks.org/memset-c-example/"&gt;&lt;tt&gt;memset&lt;/tt&gt; function&lt;/a&gt;</h1>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> number[5];</div>
 <div class="line">memset(number, 0, <span class="keyword">sizeof</span>(number)); <span class="comment">//zero array</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Division in English</h1>
 <p>![<a href="https://www.learnalberta.ca/content/memg/videos/Divisor02/Divisor02-poster.jpg">https://www.learnalberta.ca/content/memg/videos/Divisor02/Divisor02-poster.jpg</a>]()</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 File IO</h1>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Read from a text file</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
@@ -144,12 +152,12 @@ Read from a text file</h2>
 <div class="line">  </div>
 <div class="line">   <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 如何安全清除記憶體</h1>
 <blockquote class="doxtable">
 <p>當 heap 在釋放之前配置的記憶體時，並不一定會把這些釋放的記憶體直接還給系統，它通常會把這些釋放的記憶體先保留下來，等到程式接下來又需要配置動態記憶體時，再拿出來繼續使用。 </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 記憶體重複釋放(Double Free)</h2>
 <div class="fragment"><div class="line"><span class="keywordtype">char</span> *name = (<span class="keywordtype">char</span>*) malloc(...);</div>
 <div class="line"><span class="comment">// ...</span></div>
@@ -173,7 +181,7 @@ Read from a text file</h2>
 <div class="line">free(name);</div>
 </div><!-- fragment --><p>但會對效能造成負擔</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Reference</h1>
 <ol type="1">
 <li>BigInt in C [<a href="https://gist.github.com/bloopletech/338338">gist</a>]</li>
