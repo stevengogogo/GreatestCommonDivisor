@@ -3,11 +3,11 @@
 #include <string.h>
 #include "include/bigint.h"
 
-#define MAX_DEC 256
+#define MAX_DEC 257
 
 int main()
 {   
-    char a[256], b[256];
+    char a[257], b[257];
     bigint gcd;
     bigint aB, bB;
     scanf("%s %s", a, b);

@@ -13,8 +13,8 @@ end
 
 function gcd_data()
     for i in 1:10000
-        a = rand(1:1000000000)
-        b = rand(1:1000000000)
+        a = rand(1:10000)
+        b = rand(1:10000)
         GCD = gcd(a,b)
         writefile(["$a $b $GCD"], "gcd.txt")
     end

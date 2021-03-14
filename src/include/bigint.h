@@ -1,7 +1,7 @@
 #ifndef BIGINT_H
 #define BIGINT_H
 
-#define MAX_DEC 256 
+#define MAX_DEC 257 
 
 typedef struct 
 {
