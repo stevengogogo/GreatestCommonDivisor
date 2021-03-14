@@ -154,6 +154,9 @@ free(name);
 但會對效能造成負擔
 
 
+## Result
+
+![Screen Shot 2021-03-14 at 9 27 02 PM](https://user-images.githubusercontent.com/29009898/111070284-07174780-850c-11eb-94ae-6bc4ab86a209.png)
 
 
 ---
