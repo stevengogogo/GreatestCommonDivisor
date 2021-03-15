@@ -161,7 +161,7 @@ free(name);
 ## Remarks
 
 1. Fastest implementation in class is `2ms` (mine: `6ms`)
-2. @sosiristseng recommends to store [0, 9999] in one `Int` to speed up the process. To say, merging the operation and exploiting the int data type can triple the speed.
+2. @sosiristseng recommended to store [0, 9999] in one `Int` to speed up the process. To say, merging the operation and exploiting the int data type can triple the speed.
 
 ---
 
